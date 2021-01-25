@@ -14,13 +14,14 @@ class Category(models.Model):
     def __str__(self):
         return self.friendly_name
 
-    """ def get_friendly_name(self):
-        return self.friendly_name """
+    def get_friendly_name(self):
+        return self.friendly_name
 
 
 class Product(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=False)
     name = models.CharField(max_length=254, blank=False)
+    available = models.BooleanField(default=True, null=True, blank=False)
     category = models.ForeignKey('Category', null=True, blank=False,
                                  on_delete=models.SET_NULL)
     brand = models.ForeignKey(
