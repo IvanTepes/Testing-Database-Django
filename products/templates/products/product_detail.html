@@ -72,9 +72,9 @@
                     </p> -->
                     {% endif %}
                     {% if product.rating %}
-                    <small class="text-muted ml-5"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    <small class="text-muted ml-5 font-weight-bold"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                     {% else %}
-                    <small class="text-muted ml-5">No Rating</small>
+                    <small class="text-muted ml-5 font-weight-bold">No Rating</small>
                     {% endif %}
                     {% if request.user.is_superuser %}
                     <small class="ml-3 float-right">
@@ -84,7 +84,7 @@
                     {% endif %}
                     <div class="container">
                         <div class="row">
-                            <div class="col-12 text-center mt-2">
+                            <div class="col-12 text-center mt-2 font-weight-bold">
                                 <a class="text-info" href="#product-description">Additional Information</a>  
                             </div>
                         </div>
@@ -150,14 +150,15 @@
                 </div>
             </div>
         </div>
+        {% include 'products/includes/sort_category.html' %}
         <div class="row">
-            <div id="product-description" class="col-sm-12 col-md-6 text-center">
+            <div id="product-description" class="col-sm-12 col-md-6 text-center font-weight-bold">
                 <hr>
                 <p class="lead font-weight-bold">Product Description</p>
                 <hr>
                 {{ product.details | linebreaksbr  }}
             </div>
-            <div class="col-sm-12 col-md-6 text-center">
+            <div class="col-sm-12 col-md-6 text-center font-weight-bold">
               <hr>
               <p class="lead font-weight-bold" >Specification</p>
               {% include 'products/includes/specifications.html' %}
